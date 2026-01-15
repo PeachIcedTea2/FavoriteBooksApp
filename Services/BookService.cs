@@ -9,17 +9,16 @@ namespace FavoriteBooksApp.Services
         {
             Books = new List<Book>
             {
-                new Book { Title = "A Game of Thrones", Author = "George R. R. Martin"},
-                new Book { Title = "A Court of Thorns and Roses", Author = "Sarah J. Maas"},
-                new Book { Title = "Throne of Glass", Author = "Sarah J. Maas"},
-                new Book { Title = "Harry Potter and the Sorcerer's Stone", Author = "J.K. Rowling"},
-                new Book { Title = "The Lightning Thief", Author = "Rick Riordan"},
-                new Book { Title = "The Duke and I", Author = "Julia Quinn"},
-                new Book { Title = "Twilight", Author = "Stephanie Meyer"},
-                new Book { Title = "The Hunger Games", Author = "Suzanne Collins"},
-                new Book { Title = "The Lost Hero", Author = "Rick Riordan"},
-                new Book { Title = "A Clash of Kings", Author = "George R. R. Martin"},
-                new Book { Title = "A Court of Mist and Fury", Author = "Sarah J. Maas"}
+                new Book { Title = "A Game of Thrones", Author = "George R. R. Martin", ImageName="GOT"},
+                new Book { Title = "A Court of Thorns and Roses", Author = "Sarah J. Maas", ImageName="ACOTAR"},
+                new Book { Title = "Throne of Glass", Author = "Sarah J. Maas", ImageName = "TOG"},
+                new Book { Title = "Harry Potter and the Sorcerer's Stone", Author = "J.K. Rowling", ImageName = "Harry"},
+                new Book { Title = "The Lightning Thief", Author = "Rick Riordan", ImageName = "Lightning"},
+                new Book { Title = "The Duke and I", Author = "Julia Quinn", ImageName = "Bridgerton"},
+                new Book { Title = "Twilight", Author = "Stephanie Meyer", ImageName = "Twilight"},
+                new Book { Title = "The Hunger Games", Author = "Suzanne Collins", ImageName = "HungerGames"},
+                new Book { Title = "A Clash of Kings", Author = "George R. R. Martin", ImageName = "Clash"},
+                new Book { Title = "A Court of Mist and Fury", Author = "Sarah J. Maas", ImageName = "ACOMAF"}
             };
         }
 

@@ -5,7 +5,7 @@ namespace FavoriteBooksApp.Components.Pages
 {
     public partial class Home 
     {
-        public List<Book> Books { get; set; } = default!;
+        public List<Book> Books { get; set; } = new List<Book>();
 
         protected async override Task OnInitializedAsync()
         {

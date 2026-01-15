@@ -8,6 +8,7 @@
 <table> 
     <thead>
         <tr>
+            <th>  </th>
             <th> Title </th>
             <th> Author </th>
             <th> Total Favorites </th>
@@ -18,10 +19,15 @@
         @foreach (var book in Books)
         {
             <tr>
+                <td> <img src="@($"Images/{book.ImageName}.jpg")" /> </td>
                 <td> @book.Title </td>
                 <td> @book.Author </td>
                 <td> @book.TotalFavorites </td>
-                <td> @book.FavoritedBy </td>
+                <td> @foreach(var user in book.FavoritedBy)
+                    {
+                        <p> user.Username </p>
+                    } 
+                </td>
             </tr>
         }
     </tbody>

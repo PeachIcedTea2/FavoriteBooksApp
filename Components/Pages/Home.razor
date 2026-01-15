@@ -5,4 +5,26 @@
 <h1>The Book Nook</h1>
 <h2>See what's trending now</h2>
 
+<table> 
+    <thead>
+        <tr>
+            <th> Title </th>
+            <th> Author </th>
+            <th> Total Favorites </th>
+            <th> Favorited By </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Books)
+        {
+            <tr>
+                <td> @book.Title </td>
+                <td> @book.Author </td>
+                <td> @book.TotalFavorites </td>
+                <td> @book.FavoritedBy </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
 

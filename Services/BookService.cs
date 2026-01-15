@@ -4,7 +4,7 @@ namespace FavoriteBooksApp.Services
 {
     public static class BookService
     {
-        static List<Book> Books { get; }
+        public static List<Book> Books { get; }
         static BookService()
         {
             Books = new List<Book>

@@ -6,5 +6,6 @@ namespace FavoriteBooksApp.Models
         public string Author { get; set; } = string.Empty;
         public List<User> FavoritedBy { get; set; } = new List<User>();
         public string ImagePath { get; set; } = string.Empty; 
+        public int TotalFavorites { get; set; }
     }
 }

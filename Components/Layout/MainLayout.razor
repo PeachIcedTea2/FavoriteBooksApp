@@ -1,9 +1,18 @@
-﻿@inherits LayoutComponentBase
+﻿@using FavoriteBooksApp.State
+@inherits LayoutComponentBase
+@inject ApplicationState applicationState
 
 <div class="page">
     <main>
         <div class="top-row px-4">
-            <a href="Login" target="_blank">Login</a>
+            @if(applicationState.LoggedIn)
+            {
+                <p> Welcome, @applicationState.UserName </p>
+            }
+            else
+            {
+                <a href="Login" target="_blank">Login</a>
+            }
         </div>
 
         <article class="content px-4">

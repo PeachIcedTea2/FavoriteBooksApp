@@ -1,6 +1,12 @@
 ﻿@page "/"
+@rendermode InteractiveServer
+
+@using FavoriteBooksApp.State
+@inject ApplicationState applicationState
 
 <PageTitle>The Book Nook</PageTitle>
+
+<Login></Login>
 
 <h1>The Book Nook</h1>
 <h2>See what's trending now</h2>
@@ -13,6 +19,7 @@
             <th> Author </th>
             <th> Total Favorites </th>
             <th> Favorited By </th>
+            <th> </th>
         </tr>
     </thead>
     <tbody>
@@ -23,10 +30,21 @@
                 <td> @book.Title </td>
                 <td> @book.Author </td>
                 <td> @book.TotalFavorites </td>
-                <td> @foreach(var user in book.FavoritedBy)
+                <td> @for(int i = 0; i < book.FavoritedBy.Count; i++)
                     {
-                        <p> user.Username </p>
+                        // TODO: Simplify this logic for adding a comma
+                        if(i < book.FavoritedBy.Count - 1)
+                        {
+                            <p> user.Username </p>
+                        }
+                        else
+                        {
+                            <p> user.Username, </p>
+                        }
                     } 
+                </td>
+                <td>
+                    <button @onclick=@(() => Favorite(@"book.Title", 1))> Favorite </button>
                 </td>
             </tr>
         }

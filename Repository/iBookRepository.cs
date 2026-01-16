@@ -2,10 +2,10 @@ using FavoriteBooksApp.Models;
 
 namespace FavoriteBooksApp.Repository
 {
-    public interface iBookRepository
+    public interface IBookRepository
     {
         public List<Book> GetBooks();
-        public void AddBookToUser();
+        public void AddBookToUser(string bookTitle, int userId);
         public Book GetFavoriteBookFromUser();
     }
 }

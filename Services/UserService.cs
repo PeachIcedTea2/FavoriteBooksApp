@@ -4,7 +4,8 @@ namespace FavoriteBooksApp.Services
 {
     public static class UserService
     {
-        static List<User> Users { get; }
+        static int nextId = 4;
+        public static List<User> Users { get; }
         static UserService()
         {
             Users = new List<User>
@@ -16,6 +17,14 @@ namespace FavoriteBooksApp.Services
         }
 
         public static List<User> GetAll() => Users;
+
+        public static User GetUserById(int id) => Users.FirstOrDefault(u => u.Id == id);
+
+        public static void AddUser(User user)
+        {
+            user.Id = nextId++;
+            Users.Add(user);
+        }
 
         // TODO: Pass in book by id? 
         public static void Update(User user, Book book)

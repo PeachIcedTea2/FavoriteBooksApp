@@ -1,10 +1,19 @@
 using FavoriteBooksApp.Components;
+using FavoriteBooksApp.Repository;
+using FavoriteBooksApp.State;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.Services
+    .AddScoped<IBookRepository, BookRepository>()
+    .AddScoped<IUserRepository, UserRepository>();
+
+builder.Services
+    .AddScoped<ApplicationState>();
 
 var app = builder.Build();
 

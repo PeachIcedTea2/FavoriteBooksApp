@@ -1,4 +1,49 @@
-@page "/Login"
+@using FavoriteBooksApp.State
+@rendermode InteractiveServer
+@inject ApplicationState applicationState
 
-// Will need to take and store user input and add them to database
-<p> Enter Username: </p>
+<div class="top-row px-4">
+            @if(applicationState.LoggedIn)
+            {
+                <p> Welcome, @applicationState.UserName </p>
+                <button @onclick="Logout"> Log Out </button>
+            }
+            else
+            {
+                <button @onclick="LoginClicked"> Log In </button>
+            }
+</div>
+
+@if(LoggingIn && CloseModal == false)
+{
+    <div class="modal fade show d-block">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"> Login </h5>
+                    <button type="button" class="btn" @onclick="Cancel"> Close </button>
+                </div>
+                <div class = "modal-body">
+                    @if(ApplicationState.LoggedIn == false)
+                    {
+                        <form method="post" @onsubmit="OnSubmit" @formname="add-user">
+                        <AntiforgeryToken />
+                        <div>
+                            <label for="username"> Username: </label>
+                            <InputText id="username" @bind-Value="@User.Username" placeholder="Enter username"> </InputText>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn"> Submit </button>
+                        </div>
+                        </form>
+                    } 
+                    else 
+                    {
+                        <p> Welcome, @ApplicationState.UserName </p>
+                        <button @onclick="Logout"> Log Out </button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -9,8 +9,8 @@ namespace FavoriteBooksApp.Services
         {
             Books = new List<Book>
             {
-                new Book { Title = "A Game of Thrones", Author = "George R. R. Martin", ImageName="GOT"},
-                new Book { Title = "A Court of Thorns and Roses", Author = "Sarah J. Maas", ImageName="ACOTAR"},
+                new Book { Title = "A Game of Thrones", Author = "George R. R. Martin", ImageName="GOT", FavoritedBy=["mouse"], TotalFavorites=2},
+                new Book { Title = "A Court of Thorns and Roses", Author = "Sarah J. Maas", ImageName="ACOTAR", FavoritedBy = ["bunny", "cat"], TotalFavorites = 1},
                 new Book { Title = "Throne of Glass", Author = "Sarah J. Maas", ImageName = "TOG"},
                 new Book { Title = "Harry Potter and the Sorcerer's Stone", Author = "J.K. Rowling", ImageName = "Harry"},
                 new Book { Title = "The Lightning Thief", Author = "Rick Riordan", ImageName = "Lightning"},

@@ -9,8 +9,13 @@ namespace FavoriteBooksApp.Repository
         {
             var user = UserService.GetUserById(userId);
             var book = BookService.GetBookById(bookId);
-            user.FavoriteBook = book.Title ?? "";
-            book.TotalFavorites++;
+            // Only add if the user does not already have a favorite book
+            if(user.FavoriteBook == string.Empty)
+            {
+                user.FavoriteBook = book.Title ?? "";
+                book.FavoritedBy.Add(user.Username);
+                book.TotalFavorites++;
+            }
         }
 
         public List<Book> GetBooks()

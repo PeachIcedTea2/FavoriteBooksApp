@@ -44,7 +44,7 @@
                     } 
                 </td>
                 <td>
-                    <button @onclick=@(() => Favorite(@"book.Title", 1))> Favorite </button>
+                    <button @onclick=@(() => Favorite(book.Id, applicationState.UserId))> Favorite </button>
                 </td>
             </tr>
         }

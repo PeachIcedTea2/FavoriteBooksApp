@@ -23,5 +23,7 @@ namespace FavoriteBooksApp.Services
         }
 
         public static List<Book> GetAll() => Books;
+
+        public static Book GetBookById(int id) => Books.FirstOrDefault(u => u.Id == id);
     }
 }

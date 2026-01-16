@@ -5,20 +5,17 @@ namespace FavoriteBooksApp.Repository
 {
     public class BookRepository : IBookRepository
     {
-        public void AddBookToUser(string bookTitle, int userId)
+        public void AddBookToUser(int bookId, int userId)
         {
             var user = UserService.GetUserById(userId);
-            user.FavoriteBook = bookTitle;
+            var book = BookService.GetBookById(bookId);
+            user.FavoriteBook = book.Title ?? "";
+            book.TotalFavorites++;
         }
 
         public List<Book> GetBooks()
         {
-            throw new NotImplementedException();
-        }
-
-        public Book GetFavoriteBookFromUser()
-        {
-            throw new NotImplementedException();
+            return BookService.Books;
         }
     }
 }

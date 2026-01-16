@@ -36,6 +36,7 @@ namespace FavoriteBooksApp.Components.Pages
             _userRepository.AddUser(User);
             ApplicationState.UserName = User.Username;
             ApplicationState.LoggedIn = true;
+            ApplicationState.UserId = User.Id;
         }
 
         private void Logout()

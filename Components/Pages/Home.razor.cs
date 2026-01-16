@@ -1,6 +1,5 @@
 using FavoriteBooksApp.Models;
 using FavoriteBooksApp.Repository;
-using FavoriteBooksApp.Services;
 
 namespace FavoriteBooksApp.Components.Pages
 {
@@ -19,12 +18,15 @@ namespace FavoriteBooksApp.Components.Pages
 
         protected async override Task OnInitializedAsync()
         {
-            Books = BookService.Books;
+            Books = _bookRepository.GetBooks();
         }
 
-        private void Favorite(string bookTitle, int userId)
+        private void Favorite(int bookId, int userId)
         {
-            _bookRepository.AddBookToUser(bookTitle, userId);
+            if(applicationState.LoggedIn)
+            {
+                _bookRepository.AddBookToUser(bookId, userId);
+            }
         }
     }
 }

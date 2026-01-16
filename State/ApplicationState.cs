@@ -6,5 +6,6 @@ namespace FavoriteBooksApp.State
     {
         public bool LoggedIn { get; set; } = false;
         public string UserName { get; set; } = string.Empty;
+        public int UserId { get; set; }
     }
 }

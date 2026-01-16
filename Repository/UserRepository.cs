@@ -11,7 +11,6 @@ namespace FavoriteBooksApp.Repository
         {
             if(!UserService.Users.Any(u => u.Username == username))
             {
-                Console.WriteLine("Inside if statement");
                 return UserService.AddUser(username);
             }
             else

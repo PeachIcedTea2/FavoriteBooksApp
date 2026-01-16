@@ -30,7 +30,6 @@ namespace FavoriteBooksApp.Services
                 Id = nextId++
             };
             Users.Add(user);
-            Console.WriteLine($"New user added Id: {user.Id}, username:{user.Username}, favorite book: {user.FavoriteBook}");
             return user.Id;
         }
 

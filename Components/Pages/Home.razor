@@ -4,11 +4,20 @@
 @using FavoriteBooksApp.State
 @inject ApplicationState applicationState
 
+<style>
+    body {
+        background-color: #c5aded;
+    }
+</style>
+
 <PageTitle>The Book Nook</PageTitle>
 
 <Login></Login>
 
-<h1>The Book Nook</h1>
+<div>
+    <img src="Images/BookNook.png" />
+</div>
+
 <h2>See what's trending now</h2>
 
 <table> 
@@ -26,7 +35,7 @@
         @foreach (var book in Books)
         {
             <tr>
-                <td> <img src="@($"Images/{book.ImageName}.jpg")" /> </td>
+                <td> <img class="img-fluid" src="@($"Images/{book.ImageName}.jpg")" /> </td>
                 <td> @book.Title </td>
                 <td> @book.Author </td>
                 <td> @book.TotalFavorites </td>

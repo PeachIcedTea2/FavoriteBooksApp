@@ -7,9 +7,12 @@ namespace FavoriteBooksApp.Components.Pages
     {
         private IBookRepository _bookRepository;
 
-        public Home(IBookRepository bookRepository)
+        private IUserRepository _userRepository;
+
+        public Home(IBookRepository bookRepository, IUserRepository userRepository)
         {
             _bookRepository = bookRepository;
+            _userRepository = userRepository;
         }
 
         public List<Book> Books { get; set; } = new List<Book>();
@@ -25,7 +28,13 @@ namespace FavoriteBooksApp.Components.Pages
         {
             if(applicationState.LoggedIn)
             {
-                _bookRepository.AddBookToUser(bookId, userId);
+                var book = _bookRepository.GetBookById(bookId);
+                var user = _userRepository.GetUserById(userId);
+                var success =_userRepository.AddBookToUser(user, book.Title);
+                if(success)
+                {
+                    _bookRepository.AddUserToBook(book, user.Username);
+                }
             }
         }
     }

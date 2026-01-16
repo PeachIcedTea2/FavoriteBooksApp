@@ -20,10 +20,18 @@ namespace FavoriteBooksApp.Services
 
         public static User GetUserById(int id) => Users.FirstOrDefault(u => u.Id == id);
 
-        public static void AddUser(User user)
+        public static User GetUserByUsername(string username) => Users.FirstOrDefault(u => u.Username == username);
+
+        public static int AddUser(string username)
         {
-            user.Id = nextId++;
+            var user = new User()
+            {
+                Username = username,
+                Id = nextId++
+            };
             Users.Add(user);
+            Console.WriteLine($"New user added Id: {user.Id}, username:{user.Username}, favorite book: {user.FavoriteBook}");
+            return user.Id;
         }
 
         // TODO: Pass in book by id? 

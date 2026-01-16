@@ -33,16 +33,18 @@ namespace FavoriteBooksApp.Components.Pages
 
         private void OnSubmit()
         {
-            _userRepository.AddUser(User);
+            Console.WriteLine("In OnSubmit");
+            var id = _userRepository.AddUser(User.Username);
             ApplicationState.UserName = User.Username;
             ApplicationState.LoggedIn = true;
-            ApplicationState.UserId = User.Id;
+            ApplicationState.UserId = id;
         }
 
         private void Logout()
         {
             ApplicationState.UserName = "";
             ApplicationState.LoggedIn = false;
+            ApplicationState.UserId = 0;
         }
 
         private void Cancel()

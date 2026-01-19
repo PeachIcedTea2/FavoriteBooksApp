@@ -1,0 +1,53 @@
+@using FavoriteBooksApp.State
+@rendermode InteractiveServer
+@inject ApplicationState applicationState
+
+<div class="top-row px-4 d-flex justify-content-end">
+            @if(applicationState.LoggedIn)
+            {
+                <div class="mt-2"> 
+                    Welcome, @applicationState.UserName 
+                </div>
+                <div class="mt-2">
+                    <button class="btn btn-link btn-sm" @onclick="Logout"> Log Out </button>
+                </div>
+            }
+            else
+            {
+                <button class="btn btn-primary" @onclick="LoginClicked"> Log In </button>
+            }
+</div>
+
+@if(LoggingIn && CloseModal == false)
+{
+    <div class="modal fade show d-block" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"> Login </h5>
+                    <button type="button" class="btn-close" @onclick="Cancel" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class = "modal-body">
+                    @if(ApplicationState.LoggedIn == false)
+                    {
+                        <form method="post" @onsubmit="OnSubmit" @formname="add-user">
+                        <AntiforgeryToken />
+                        <div>
+                            <label for="username"> Username: </label>
+                            <InputText id="username" @bind-Value="@User.Username" placeholder="Enter username"> </InputText>
+                        </div>
+                        <div class="mt-2">
+                            <button type="submit" class="btn btn-primary"> Submit </button>
+                        </div>
+                        </form>
+                    } 
+                    else 
+                    {
+                        <p> Welcome, @ApplicationState.UserName </p>
+                        <button class="btn btn-secondary" @onclick="Logout"> Log Out </button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
